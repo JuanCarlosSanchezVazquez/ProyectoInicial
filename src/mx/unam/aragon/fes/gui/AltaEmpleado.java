@@ -326,8 +326,18 @@ public class AltaEmpleado extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("<<");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jButton5.setText("Nuevo registro");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -477,7 +487,7 @@ public class AltaEmpleado extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // falta hacer control de tamaño
-        if(this.indice < this.lista.size() -1 ) {
+        if(this.indice < this.lista.size() -1) { // para que funciona el -1
             this.indice++; //this.indice == indice +1
             
         }else{
@@ -488,6 +498,22 @@ public class AltaEmpleado extends javax.swing.JFrame {
             llenarFormulario(indice);
     }//GEN-LAST:event_jButton3MouseClicked
 
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+       // if(this.indice < this.lista.size() -1) {
+         //   this.indice--;
+            
+        //}else{
+            //this.indice = 0;
+            
+        //}
+         //this.jLabel4.setText("" + this.indice); //concatenar string + int hace el int string
+           // llenarFormulario(indice);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void llenarFormulario(int indice){
         if (lista.size() > 0){
             Empleado e = lista.get(indice);
@@ -496,6 +522,20 @@ public class AltaEmpleado extends javax.swing.JFrame {
             this.jTextField3.setText(e.getApMaterno());
             this.jTextField4.setText("" + e.getEdad());
             this.jTextField5.setText(e.getCurp());
+            // Direccion
+            this.jTextField6.setText(e.getDomicilio().getCalle());
+            this.jTextField7.setText(e.getDomicilio().getNumero());
+            this.jTextField8.setText(e.getDomicilio().getColonia());
+            this.jTextField9.setText(e.getDomicilio().getDelegacion());
+            this.jTextField10.setText(e.getDomicilio().getEstado());
+            this.jTextField15.setText(e.getDomicilio().getCp());
+            //Empresariales
+            this.jTextField11.setText("" + e.getNumeroEmpleado());
+            this.jTextField12.setText(e.getDepartamento());
+            this.jTextField13.setText("" + e.getSueldo());
+            this.jTextField14.setText("" + e.getHorasExtra());
+            
+            
             //Terminar de tarea con screens
         }
     }
